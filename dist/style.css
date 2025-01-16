@@ -1,0 +1,157 @@
+/* General Body Styling */
+body {
+  font-family: sans-serif;
+  background: #fafafa;
+  color: #333;
+  margin: 0; 
+  padding: 20px;
+  text-align: center;
+}
+
+/* CENTERING CONTENT */
+#heart-container,
+#billiards-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+/* TRANSITIONS FOR FADE OUT/FADE IN */
+#heart-container {
+  transition: opacity 0.5s ease;
+}
+#billiards-container {
+  transition: opacity 0.5s ease;
+  opacity: 0; /* start hidden */
+  display: none; /* hidden until heart is clicked */
+}
+
+/* HEART SHAPE (CSS trick) */
+.heart {
+  width: 100px;
+  height: 90px;
+  background: red;
+  position: relative;
+  transform: rotate(-45deg);
+  cursor: pointer;
+  animation: heartbeat 1s infinite;
+  /* The animation below makes the heart "pulse" */
+}
+.heart::before,
+.heart::after {
+  content: "";
+  position: absolute;
+  width: 100px;
+  height: 90px;
+  background: red;
+  border-radius: 50%;
+}
+.heart::before {
+  left: 0;
+  top: -50px;
+}
+.heart::after {
+  left: 50px;
+  top: 0;
+}
+
+/* Keyframes for the heart's pulse */
+@keyframes heartbeat {
+  0%, 100% {
+    transform: scale(1) rotate(-45deg);
+  }
+  50% {
+    transform: scale(1.1) rotate(-45deg);
+  }
+}
+
+/* Prompt under heart */
+.prompt {
+  margin-top: 20px;
+  font-size: 1.2rem;
+  color: #666;
+}
+
+/* BILLIARDS TABLE STYLING */
+.table {
+  width: 300px;
+  height: 150px;
+  background: #2F4F2F; /* a dark green color */
+  position: relative;
+  border: 8px solid #654321; /* a brownish border for the table’s edges */
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* POCKETS (little black circles) */
+.pocket {
+  width: 20px;
+  height: 20px;
+  background: #000;
+  border-radius: 50%;
+  position: absolute;
+}
+.top-left {
+  top: -10px; 
+  left: -10px;
+}
+.top-right {
+  top: -10px; 
+  right: -10px;
+}
+.bottom-left {
+  bottom: -10px; 
+  left: -10px;
+}
+.bottom-right {
+  bottom: -10px; 
+  right: -10px;
+}
+
+/* BILLIARD BALLS */
+.ball {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  color: #fff;
+  font-weight: bold;
+  display: flex;
+  align-items: center; 
+  justify-content: center;
+  position: absolute;
+  font-size: 0.9rem;
+  user-select: none; /* Prevent text selection */
+}
+.ball1 {
+  background: #ffdf00; /* Yellowish for ball #1 */
+  top: 30px;
+  left: 40px;
+}
+.ball2 {
+  background: #000; /* 8-Ball is black */
+  top: 80px;
+  left: 130px;
+}
+.ball3 {
+  background: #d2232a; /* Reddish for ball #9, or pick any color */
+  top: 30px;
+  right: 40px;
+}
+
+/* MESSAGE BOX NEXT TO BILLIARDS */
+.message-box {
+  margin-top: 20px;
+  text-align: center;
+  max-width: 300px;
+  background: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  border: 2px dashed #333;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+}
+.message-box h2 {
+  margin-top: 0;
+  color: #d2232a;
+}

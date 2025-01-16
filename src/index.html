@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Meeting Location Revealed</title>
+</head>
+<body>
+
+  <h1 style="text-align:center;">Location: Click the Heart</h1>
+  
+  <!-- HEART CONTAINER -->
+  <div id="heart-container">
+    <div class="heart"></div>
+    <p class="prompt">Click the heart...</p>
+  </div>
+  
+  <!-- BILLIARDS CONTAINER (Hidden at first) -->
+  <div id="billiards-container">
+    <div class="table">
+      <!-- Pockets -->
+      <div class="pocket top-left"></div>
+      <div class="pocket top-right"></div>
+      <div class="pocket bottom-left"></div>
+      <div class="pocket bottom-right"></div>
+      <!-- Balls (example placeholders) -->
+      <div class="ball ball1">1</div>
+      <div class="ball ball2">8</div>
+      <div class="ball ball3">9</div>
+    </div>
+
+    <div class="message-box">
+      <h2>You Found the Table!</h2>
+      <p>
+        We’ll meet where the cues align<br>
+        Shots and chalk will intertwine<br>
+        A place to rack up memories anew<br>
+        60 Airport Rd awaits me and you!
+      </p>
+
+      <!-- Embedded Google Map -->
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d11474.637902527265!2d-69.6773219!3d44.5387809!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cb1e4c3b8bdf05d%3A0xd92f04a2d9767f98!2sTJ%27s%20Classic%20Billiards!5e0!3m2!1sen!2sus!4v1692203325325!5m2!1sen!2sus"
+        width="300"
+        height="200"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </div>
+
+  <script>
+    // 1. Grab the heart element
+    const heart = document.querySelector('.heart');
+
+    // 2. Add a click event listener
+    heart.addEventListener('click', () => {
+      // Fade out heart
+      const heartContainer = document.getElementById('heart-container');
+      heartContainer.style.opacity = '0';
+      
+      setTimeout(() => {
+        heartContainer.style.display = 'none';
+
+        // Fade in billiards
+        const billiards = document.getElementById('billiards-container');
+        billiards.style.display = 'flex';
+        setTimeout(() => {
+          billiards.style.opacity = '1';
+        }, 50);
+      }, 500);
+    });
+  </script>
+
+</body>
+</html>
